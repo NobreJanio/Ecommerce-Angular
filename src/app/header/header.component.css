@@ -9,7 +9,14 @@
 
 .main-header__title {    
     font-size: 92px;
-    letter-spacing: -1.5px;    
+    letter-spacing: -1.5px;  
+    transition: all 0.3s ease;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.main-header__title:hover {
+    transform: scale(1.02);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
 .main-header__title--blue {
@@ -32,11 +39,28 @@
     font-size: 22px;
     text-decoration: none;
     transition: all .3s ease-in-out;
+    position: relative;
+}
+
+.main-header__menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--blue);
+    transition: width 0.3s ease;
 }
 
 .main-header__menu a:hover {
     background-color: var(--blue);
     color: #fff;
+    transform: translateY(-3px);
+}
+
+.main-header__menu a:hover::after {
+    width: 100%;
 }
 
 .container-menu {
@@ -48,6 +72,8 @@
 
 .badge-carrinho {
     background-color: var(--dark-blue);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
     padding: 5px 10px;    
     border-radius: 4px;
     color: white;
